@@ -17,18 +17,29 @@ CSVs have already been uploaded to a Google Drive folder from which the notebook
 --------------------------------------------------------------------------------
 
 from pydrive.auth import GoogleAuth
+
 from google.colab import drive
+
 from pydrive.drive import GoogleDrive
+
 from google.colab import auth
+
 from oauth2client.client import GoogleCredentials
 
+
 auth.authenticate_user()
+
 gauth = GoogleAuth()
+
 gauth.credentials = GoogleCredentials.get_application_default()
+
 drive = GoogleDrive(gauth)
 
+
 file_id = 'FILE ID FROM THE SHAREABLE LINK'
+
 download = drive.CreateFile({'id':file_id})
+
 download.GetContentFile('NAME TO SAVE IT AS.extension')
 
 --------------------------------------------------------------------------------
